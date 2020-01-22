@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
-import Header from './Header';
-import './style.css';
+import Header from './navs/Header';
+import './style.scss';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+import { About, Products, Todos, Makers, Launched, Home } from './pages'
 
 interface AppProps { }
 interface AppState {
@@ -20,11 +25,17 @@ class App extends Component<AppProps, AppState> {
   render() {
     return (
       <div>
-        <Header />
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+        <Router>
+          <Header />
+          <Switch>
+            <Route path="/about" component={About} />
+            <Route path="/products" component={Products} />
+            <Route path="/todos" component={Todos} />
+            <Route path="/makers" component={Makers} />
+            <Route path="/launched" component={Launched} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </Router>
       </div>
     );
   }

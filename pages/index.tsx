@@ -1,0 +1,6 @@
+export { default as About } from './About'
+export { default as Home } from './Home'
+export { default as Launched } from './Launched'
+export { default as Makers } from './Makers'
+export { default as Products } from './Products'
+export { default as Todos } from './Todos'
